@@ -26,7 +26,7 @@
         </nav>
         <div class="container">
             <div class="row">
-                <div clas="col-md-12">
+                <div clas="col-md-12" style="width: 100%">
                     <ul class="list-group" style="width: 100%">
                         <?php
                             $directory = $_GET['directory'];
