@@ -25,7 +25,7 @@
         </nav>
         <div class="container">
             <div class="row">
-                <div clas="col-md-12">
+                <div clas="col-md-12" style="width: 100%">
                     <?php
                         include 'markdown.php';
 
