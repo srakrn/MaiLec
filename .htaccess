@@ -1,0 +1,7 @@
+RewriteEngine on
+
+RewriteCond %{REQUEST_URI} \.md$
+RewriteRule ^(.*)$ viewer.php?directory=$1 [L,QSA]
+
+RewriteCond %{REQUEST_URI} !\..*$ 
+RewriteRule ^(.*)$ lister.php?directory=$1 [L,QSA]
