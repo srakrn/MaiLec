@@ -26,50 +26,49 @@
         </nav>
         <div class="container">
             <div class="row">
-                <div clas="col-md-12" style="width: 100%">
-                    <ul class="list-group" style="width: 100%">
-                        <?php
-                            include 'markdown.php';
+                <ul class="list-group" style="width: 100%">
+                    <?php
+                        include 'markdown.php';
 
-                            $directory = $_GET['directory'];
-                            if($directory == ''){
-                                $directory = '.';
+                        $directory = $_GET['directory'];
+                        if($directory == ''){
+                            $directory = '.';
+                        }
+                        $phpfiles = scandir($directory);
+                        $file_count = 0;
+
+                        echo "<a href='..' class='list-group-item list-group-item-action'><span class='oi oi-arrow-thick-top'></span> Up</a>";
+                        foreach($phpfiles as $phpfile)
+                        {
+                            $phpfile = $directory.'/'.$phpfile;
+                            if(basename($phpfile)[0] == "."){
+                                //
                             }
-                            $phpfiles = scandir($directory);
-                            $file_count = 0;
-
-                            echo "<a href='..' class='list-group-item list-group-item-action'><span class='oi oi-arrow-thick-top'></span> Up</a>";
-                            foreach($phpfiles as $phpfile)
-                            {
-                                $phpfile = $directory.'/'.$phpfile;
-                                if(basename($phpfile)[0] == "."){
-                                    //
-                                }
-                                else if(basename($phpfile) == ".."){
-                                    //
-                                }
-                                else if(is_dir($phpfile)){
-                                    echo "<a href='".basename($phpfile)."' class='list-group-item list-group-item-action'><span class='oi oi-folder'></span> ".basename($phpfile)."</a>";
-                                    $file_count++;
-                                }
-                                else if(pathinfo(basename($phpfile))['extension'] == "md" && basename($phpfile) != "README.md"){
-                                    echo "<a href='".basename($phpfile)."' class='list-group-item list-group-item-action'><span class='oi oi-file'></span> ".basename($phpfile)."</a>";
-                                    $file_count++;
-                                }
+                            else if(basename($phpfile) == ".."){
+                                //
                             }
-                            if($file_count == 0){
-                                // echo "<a href='$phpfile' class='list-group-item list-group-item-action'>".basename($phpfile)."</a>";
+                            else if(is_dir($phpfile)){
+                                echo "<a href='".basename($phpfile)."' class='list-group-item list-group-item-action'><span class='oi oi-folder'></span> ".basename($phpfile)."</a>";
+                                $file_count++;
                             }
+                            else if(pathinfo(basename($phpfile))['extension'] == "md" && basename($phpfile) != "README.md"){
+                                echo "<a href='".basename($phpfile)."' class='list-group-item list-group-item-action'><span class='oi oi-file'></span> ".basename($phpfile)."</a>";
+                                $file_count++;
+                            }
+                        }
+                        if($file_count == 0){
+                            // echo "<a href='$phpfile' class='list-group-item list-group-item-action'>".basename($phpfile)."</a>";
+                        }
 
-                            $f = fopen($directory.'/'."README.md", "r") or die();
-                            $contents = fread($f, filesize($directory.'/'."README.md"));
-                            fclose($f);
+                        $f = fopen($directory.'/'."README.md", "r") or die();
+                        $contents = fread($f, filesize($directory.'/'."README.md"));
+                        fclose($f);
 
-                            echo "<hr/>";
-                            echo Markdown($contents);
-                        ?>
-                    </ul>
-                </div>
+                        echo '<div class="alert alert-secondary" role="alert" style="margin-top: 40px;">';
+                        echo Markdown($contents);
+                        echo '</div>';
+                    ?>
+                </ul>
             </div>
         </div>
     </body>

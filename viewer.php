@@ -16,7 +16,19 @@
                 padding-bottom: 5px;
                 border-bottom: 1px solid #ccc;
             }
+            img {
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                width: 60%;
+            }
+            @media screen and (max-width: 480px) {
+                img {
+                    width: 90%;
+                }
+            }
         </style>
+
     </head>
 
     <body>
@@ -24,21 +36,17 @@
             <a class="navbar-brand" href="#">MAILEC</a>
         </nav>
         <div class="container">
-            <div class="row">
-                <div clas="col-md-12" style="width: 100%">
-                    <?php
-                        include 'markdown.php';
+        <?php
+                include 'markdown.php';
 
-                        $filename = $_GET['directory'];
+                $filename = $_GET['directory'];
 
-                        $myfile = fopen($filename, "r") or die("Unable to open file!");
-                        $contents = fread($myfile, filesize($filename));
-                        fclose($myfile);
+                $myfile = fopen($filename, "r") or die("Unable to open file!");
+                $contents = fread($myfile, filesize($filename));
+                fclose($myfile);
 
-                        echo Markdown($contents);
-                    ?>
-                </div>
-            </div>
+                echo Markdown($contents);
+            ?>
         </div>
     </body>
 </html>
