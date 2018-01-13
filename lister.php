@@ -39,7 +39,7 @@
                             foreach($phpfiles as $phpfile)
                             {
                                 $phpfile = $directory.'/'.$phpfile;
-                                if(basename($phpfile) == "."){
+                                if(basename($phpfile)[0] == "."){
                                     //
                                 }
                                 else if(basename($phpfile) == ".."){
