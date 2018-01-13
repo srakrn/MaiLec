@@ -29,6 +29,8 @@
                 <div clas="col-md-12" style="width: 100%">
                     <ul class="list-group" style="width: 100%">
                         <?php
+                            include 'markdown.php';
+
                             $directory = $_GET['directory'];
                             if($directory == ''){
                                 $directory = '.';
@@ -47,17 +49,24 @@
                                     //
                                 }
                                 else if(is_dir($phpfile)){
-                                    echo "<a href='".basename($phpfile)."' class='list-group-item list-group-item-action'><span class='oi oi-folder'></span> Folder: ".basename($phpfile)."</a>";
+                                    echo "<a href='".basename($phpfile)."' class='list-group-item list-group-item-action'><span class='oi oi-folder'></span> ".basename($phpfile)."</a>";
                                     $file_count++;
                                 }
-                                else if(pathinfo(basename($phpfile))['extension'] == "md"){
-                                    echo "<a href='".basename($phpfile)."' class='list-group-item list-group-item-action'><span class='oi oi-file'></span> Lecture: ".basename($phpfile)."</a>";
+                                else if(pathinfo(basename($phpfile))['extension'] == "md" && basename($phpfile) != "README.md"){
+                                    echo "<a href='".basename($phpfile)."' class='list-group-item list-group-item-action'><span class='oi oi-file'></span> ".basename($phpfile)."</a>";
                                     $file_count++;
                                 }
                             }
                             if($file_count == 0){
                                 // echo "<a href='$phpfile' class='list-group-item list-group-item-action'>".basename($phpfile)."</a>";
                             }
+
+                            $f = fopen($directory.'/'."README.md", "r") or die();
+                            $contents = fread($f, filesize($directory.'/'."README.md"));
+                            fclose($f);
+
+                            echo "<hr/>";
+                            echo Markdown($contents);
                         ?>
                     </ul>
                 </div>
