@@ -4,7 +4,8 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title>MAILEC</title>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/font/css/open-iconic-bootstrap.css" integrity="sha256-CNwnGWPO03a1kOlAsGaH5g8P3dFaqFqqGFV/1nkX5OU=" crossorigin="anonymous" />
         <style>
             @import url('https://srakrn.me/fonts/boon/boon.css');
             body{
@@ -35,7 +36,7 @@
                             $phpfiles = scandir($directory);
                             $file_count = 0;
 
-                            echo "<a href='..' class='list-group-item list-group-item-action'>Up</a>";
+                            echo "<a href='..' class='list-group-item list-group-item-action'><span class='oi oi-arrow-thick-top'></span> Up</a>";
                             foreach($phpfiles as $phpfile)
                             {
                                 $phpfile = $directory.'/'.$phpfile;
@@ -46,11 +47,11 @@
                                     //
                                 }
                                 else if(is_dir($phpfile)){
-                                    echo "<a href='".basename($phpfile)."' class='list-group-item list-group-item-action'>Folder: ".basename($phpfile)."</a>";
+                                    echo "<a href='".basename($phpfile)."' class='list-group-item list-group-item-action'><span class='oi oi-folder'></span> Folder: ".basename($phpfile)."</a>";
                                     $file_count++;
                                 }
                                 else if(pathinfo(basename($phpfile))['extension'] == "md"){
-                                    echo "<a href='".basename($phpfile)."' class='list-group-item list-group-item-action'>Lecture: ".basename($phpfile)."</a>";
+                                    echo "<a href='".basename($phpfile)."' class='list-group-item list-group-item-action'><span class='oi oi-file'></span> Lecture: ".basename($phpfile)."</a>";
                                     $file_count++;
                                 }
                             }
@@ -64,9 +65,3 @@
         </div>
     </body>
 </html>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
-    });
-</script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML'></script>
