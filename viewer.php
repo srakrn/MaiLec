@@ -41,7 +41,7 @@
 
                 $filename = $_GET['directory'];
 
-                $myfile = fopen($filename, "r") or die("Unable to open file!");
+                $myfile = fopen($filename, "r") or die('<div class="alert alert-warning" role="alert">There appears to be no file here.</div>');
                 $contents = fread($myfile, filesize($filename));
                 fclose($myfile);
 
