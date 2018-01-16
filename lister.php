@@ -7,10 +7,10 @@
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/font/css/open-iconic-bootstrap.css" integrity="sha256-CNwnGWPO03a1kOlAsGaH5g8P3dFaqFqqGFV/1nkX5OU=" crossorigin="anonymous" />
         <style>
-            @import url('https://srakrn.me/fonts/boon/boon.css');
+            @import url('https://srakrn.me/fonts/laksaman/laksaman.css');
             body{
                 margin-top: 80px;
-                font-family: 'Laksaman', 'Boon', serif;
+                font-family: 'Laksaman', serif;
             }
             h1, h2, h3, h4, h5, h6{
                 margin-bottom: 1rem;
@@ -73,3 +73,9 @@
         </div>
     </body>
 </html>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+    });
+</script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML'></script>

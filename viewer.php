@@ -6,10 +6,10 @@
         <title>MAILEC</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
         <style>
-            @import url('https://srakrn.me/fonts/boon/boon.css');
+            @import url('https://srakrn.me/fonts/laksaman/laksaman.css');
             body{
                 margin-top: 80px;
-                font-family: 'Laksaman', 'Boon', serif;
+                font-family: 'Laksaman', serif;
             }
             h1, h2, h3, h4, h5, h6{
                 margin-bottom: 1rem;
