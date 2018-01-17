@@ -31,6 +31,18 @@
                     width: 90%;
                 }
             }
+            @media print {
+                body, .container, .row{
+                    margin: 0px;
+                }
+                nav{
+                    display: none;
+                }
+            }
+            @page{
+                size: auto; 
+                margin: 25mm 25mm 25mm 25mm;  
+            } 
         </style>
 
     </head>
