@@ -24,11 +24,11 @@
                 display: block;
                 margin-left: auto;
                 margin-right: auto;
-                width: 60%;
+                max-width: 60%;
             }
             @media screen and (max-width: 480px) {
                 img {
-                    width: 90%;
+                    max-width: 90%;
                 }
             }
             @media print {
