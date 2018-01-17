@@ -5,6 +5,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title>MAILEC</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+        <link rel="stylesheet"
+              href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
         <style>
             @import url('https://srakrn.me/fonts/laksaman/laksaman.css');
             body{
@@ -37,7 +41,7 @@
         </nav>
         <div class="container">
         <?php
-                include 'markdown.php';
+                include 'Parsedown.php';
 
                 $filename = $_GET['directory'];
 
@@ -45,7 +49,8 @@
                 $contents = fread($myfile, filesize($filename));
                 fclose($myfile);
 
-                echo Markdown($contents);
+                $Parsedown = new Parsedown();
+                echo $Parsedown->text($contents);
             ?>
         </div>
     </body>
@@ -56,3 +61,4 @@
     });
 </script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML'></script>
+<script>hljs.initHighlightingOnLoad();</script>
