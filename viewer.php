@@ -8,17 +8,19 @@
         <link rel="stylesheet"
               href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
         <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <style>
             @import url('https://srakrn.me/fonts/laksaman/laksaman.css');
             body{
                 margin-top: 80px;
                 font-family: 'Laksaman', serif;
+                line-height: 1.8em;
             }
             h1, h2, h3, h4, h5, h6{
                 margin-bottom: 1rem;
                 padding-bottom: 5px;
-                border-bottom: 1px solid #ccc;
+                border-bottom: 1px solid rgba(0,0,0,0.1);
+                font-weight: bold;
             }
             img {
                 display: block;
@@ -73,4 +75,7 @@
     });
 </script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML'></script>
-<script>hljs.initHighlightingOnLoad();</script>
+<script>
+    hljs.initHighlightingOnLoad();
+    $("table").addClass("table");
+</script>

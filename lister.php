@@ -11,12 +11,37 @@
             body{
                 margin-top: 80px;
                 font-family: 'Laksaman', serif;
+                line-height: 1.8em;
             }
             h1, h2, h3, h4, h5, h6{
                 margin-bottom: 1rem;
                 padding-bottom: 5px;
-                border-bottom: 1px solid #ccc;
+                border-bottom: 1px solid rgba(0,0,0,0.1);
+                font-weight: bold;
             }
+            img {
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                max-width: 60%;
+            }
+            @media screen and (max-width: 480px) {
+                img {
+                    max-width: 90%;
+                }
+            }
+            @media print {
+                body, .container, .row{
+                    margin: 0px;
+                }
+                nav{
+                    display: none;
+                }
+            }
+            @page{
+                size: auto; 
+                margin: 25mm 25mm 25mm 25mm;  
+            } 
         </style>
     </head>
 
@@ -51,7 +76,11 @@
                                 echo "<a href='".basename($phpfile)."' class='list-group-item list-group-item-action'><span class='oi oi-folder'></span> ".basename($phpfile)."</a>";
                                 $file_count++;
                             }
-                            else if(pathinfo(basename($phpfile))['extension'] == "md" && basename($phpfile) != "README.md"){
+                            else if(pathinfo(basename($phpfile))['extension'] == "md"){
+                                echo "<a href='".basename($phpfile)."' class='list-group-item list-group-item-action'><span class='oi oi-document'></span> ".basename($phpfile)."</a>";
+                                $file_count++;
+                            }
+                            else{
                                 echo "<a href='".basename($phpfile)."' class='list-group-item list-group-item-action'><span class='oi oi-file'></span> ".basename($phpfile)."</a>";
                                 $file_count++;
                             }
