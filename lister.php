@@ -72,6 +72,9 @@
                             else if(basename($phpfile) == ".."){
                                 //
                             }
+                            else if(pathinfo(basename($phpfile))['extension'] == "php"){
+                                //
+                            }
                             else if(is_dir($phpfile)){
                                 echo "<a href='".basename($phpfile)."' class='list-group-item list-group-item-action'><span class='oi oi-folder'></span> ".basename($phpfile)."</a>";
                                 $file_count++;
